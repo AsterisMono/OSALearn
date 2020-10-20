@@ -60,7 +60,10 @@ private:
 	int AreaCode;
 	int Base;
 }
+```
+
 然后实现输入、输出运算符重载：
+```c++
 friend istream& operator>>(istream& in, PhoneNum &phm) {
 		char t;
 		in.get(t);
