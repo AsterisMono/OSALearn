@@ -143,7 +143,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 使用`git stash`保存现场以便未来使用：
 
-`git stach pop`弹出 stash 内容，或者`git stash apply`+`git stash drop`。
+`git stash pop`弹出 stash 内容，或者`git stash apply`+`git stash drop`。
 
 > `git stash list` 会列出所有的 stash。可以按列表中格式恢复或删除指定的 stash。
 
@@ -182,3 +182,15 @@ feature / bug 分支：添加的功能或者修复的bug，单开分支，结束
 先 pull 他人更改再 push origin 时，提交历史会分叉，很难看。
 
 使用`git rebase`把本地提交移动到 origin/branch 的最新提交之后。
+
+> 发生在 ahead of master 的 commit 和你的 commit 发生冲突的时候。
+>
+> 使用 rebase 返回冲突处进行解决，然后 git add， 最后 git rebase --continue。
+
+> *在rebase的过程中，也许会出现冲突(conflict). 在这种情况，Git会停止rebase并会让你去解决 冲突；在解决完冲突后，用"git-add"命令去更新这些内容的索引(index), 然后，你无需执行 git-commit,只要执行:*
+>
+>*$ git rebase --continue*
+>
+>*这样git会继续应用(apply)余下的补丁。*
+>
+> Ref:[Gitbook](http://gitbook.liuhui998.com/4_2.html)
