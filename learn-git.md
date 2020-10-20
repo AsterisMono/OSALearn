@@ -69,13 +69,18 @@ commit：提交的是 add ，不是文件修改
 
 回到最近一次`add`或者`commit`时的状态
 
-### 2. 已提交到暂存区
+### 2. 已提交到暂存区，未 commit
 
 `git reset HEAD readme.md`
 
 将暂存区的修改撤销，重新放回工作区
 
 > 这个命令也可以用来把文件回退到某个版本。
+
+### 3. 已经 commit
+`git revert HEAD`
+
+> 创建一个撤销上一个 commit 的新 commit 。
 
 ## 远程仓库
 ### Push
