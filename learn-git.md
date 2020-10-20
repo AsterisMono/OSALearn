@@ -60,7 +60,7 @@ commit：提交的是 add ，不是文件修改
 
 > 查看工作区和**版本库中**最新版本区别：
 >
-> git diff HEAD -- readme.md
+> `git diff HEAD -- readme.md`
 
 ## 丢弃工作区的修改
 ### 1. 在工作区，未提交到暂存区
@@ -102,7 +102,7 @@ master--------/               \---------master+
 
 ### 建立分支
 `git branch new-branch`
-> 不加参数的 git branch 会列出所有分支。
+> 不加参数的 `git branch` 会列出所有分支。
 
 ### 切换分支
 `git switch new-branch`
@@ -138,14 +138,14 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 使用`git log`查看分支历史时，可以看到曾经的分支，不会丢分支信息。
 
-### Git stash
+### git stash
 一个分支的修改已经暂存/尚未暂存，需要临时切换到另一个分支工作。
 
 使用`git stash`保存现场以便未来使用：
 
 `git stach pop`弹出 stash 内容，或者`git stash apply`+`git stash drop`。
 
-> git stash list 会列出所有的 stash。可以按列表中格式恢复或删除指定的 stash。
+> `git stash list` 会列出所有的 stash。可以按列表中格式恢复或删除指定的 stash。
 
 ### 在 branch 间复制 commit
 常用于在 master 修复 bug 后复制给 dev 分支。
@@ -167,3 +167,18 @@ feature / bug 分支：添加的功能或者修复的bug，单开分支，结束
 
 ### 远程分支策略
 模拟加入多人协作。
+
+> 查看远程库信息：`git remote -v`
+
+`git clone`时，会自动把本地 master 和 origin master 相关联，但其他分支没有关联。
+
+`git checkout -b dev origin/dev`来拉取远程 dev 分支并建立关联。
+
+多人协作时，你的本地分支可能落后 origin ，使用`git pull`拉取远程分支的最新版本。
+
+> 手动关联本地与远程分支：`git branch --set-upstream-to=origin/dev dev`
+
+### git rebase
+先 pull 他人更改再 push origin 时，提交历史会分叉，很难看。
+
+使用`git rebase`把本地提交移动到 origin/branch 的最新提交之后。
